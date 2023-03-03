@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import './widgets/header_auth.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   late double _deviceWidth;
 
   @override
@@ -57,6 +57,7 @@ class LoginScreen extends StatelessWidget {
           ]),
       child: Column(
         children: <Widget>[
+          _nameTextField(context),
           _emailTextField(context),
           _passwordTextField(context)
         ],
@@ -64,10 +65,29 @@ class LoginScreen extends StatelessWidget {
     );
   }
 
-  Widget _emailTextField(context) {
+  Widget _nameTextField(context) {
     return TextFormField(
       autocorrect: false,
       autofocus: true,
+      style: TextStyle(color: Theme.of(context).primaryColor),
+      cursorColor: Theme.of(context).primaryColor,
+      decoration: InputDecoration(
+          border: UnderlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(color: Theme.of(context).primaryColor)),
+          contentPadding: EdgeInsets.all(10),
+          hintText: 'Nome',
+          hintStyle: TextStyle(color: Theme.of(context).primaryColor)),
+    );
+  }
+
+  Widget _emailTextField(context) {
+    return TextFormField(
+      autocorrect: false,
+      autofocus: false,
       style: TextStyle(color: Theme.of(context).primaryColor),
       cursorColor: Theme.of(context).primaryColor,
       decoration: InputDecoration(
@@ -110,7 +130,7 @@ class LoginScreen extends StatelessWidget {
         },
         color: Theme.of(context).primaryColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        child: Text('LOGIN'),
+        child: Text('CADASTRAR'),
       ),
     );
   }
@@ -119,10 +139,10 @@ class LoginScreen extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         // Navigator.of(context).pushReplacement(
-        //     MaterialPageRoute(builder: (context) => RegisterScreen()));
-        Navigator.pushNamed(context, '/register');
+        //     MaterialPageRoute(builder: (context) => LoginScreen()));
+        Navigator.pushReplacementNamed(context, '/login');
       },
-      child: Text('Cadastre-se',
+      child: Text('Já é cadastrado? Faça o Login!',
           style:
               TextStyle(color: Theme.of(context).primaryColor, fontSize: 18.2)),
     );
