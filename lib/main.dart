@@ -13,10 +13,8 @@ class FlutterFoodApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'FlutterFood',
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(147, 70, 248, 1),
-        backgroundColor: Colors.white,
-        colorScheme: ColorScheme.fromSwatch()
-            .copyWith(secondary: Colors.black, brightness: Brightness.dark),
+        primaryColor: Color.fromRGBO(147, 70, 248, 1), colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: Colors.black, brightness: Brightness.dark).copyWith(background: Colors.white),
       ),
       home: LoginScreen(),
     );
