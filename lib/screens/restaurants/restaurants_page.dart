@@ -1,9 +1,10 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
 import '../../models/Restaurant.dart';
 import './widgets/RestaurantCard.dart';
+import '../../widgets/flutter_bottom_navigator.dart';
 
 class RestaurantsPage extends StatefulWidget {
   const RestaurantsPage({super.key});
@@ -35,18 +36,17 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      appBar: AppBar(
-        title: Text(
-          'Restaurantes',
-          style: TextStyle(color: Colors.white),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        appBar: AppBar(
+          title: Text(
+            'Restaurantes',
+            style: TextStyle(color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: Theme.of(context).primaryColor,
         ),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
-        leading: BackButton(color: Colors.white),
-      ),
-      body: _buildRestaurants(context),
-    );
+        body: _buildRestaurants(context),
+        bottomNavigationBar: FlutterFoodBottomNavigator(0));
   }
 
   Widget _buildRestaurants(context) {
