@@ -26,6 +26,7 @@ class FlutterFoodBottomNavigator extends StatelessWidget {
           case 0:
             break;
           case 1:
+            Navigator.pushReplacementNamed(context, '/my-orders');
             break;
           case 2:
             Navigator.pushReplacementNamed(context, '/cart');
