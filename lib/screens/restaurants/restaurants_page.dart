@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutterfood/data/network/dio_client.dart';
 
 import '../../models/Restaurant.dart';
 import './widgets/RestaurantCard.dart';
@@ -34,6 +35,12 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    getRestaurants();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
@@ -61,5 +68,10 @@ class _RestaurantsPageState extends State<RestaurantsPage> {
             contact: restaurant.contact);
       },
     );
+  }
+
+  void getRestaurants() async {
+    final response = await DioClient().get('v1/tenants');
+    print(response);
   }
 }

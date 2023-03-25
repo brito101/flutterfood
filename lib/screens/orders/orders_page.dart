@@ -69,7 +69,7 @@ class OrdersScreen extends StatelessWidget {
         style: TextStyle(color: Theme.of(context).primaryColor),
       ),
       subtitle: Text(
-        "${order.date}",
+        order.date,
         style: TextStyle(color: Theme.of(context).primaryColor),
       ),
       trailing: IconTheme(
